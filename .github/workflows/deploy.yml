@@ -33,6 +33,8 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
+            echo "SSH works!"
+            script: |
             mkdir -p ${{ secrets.APP_DIRECTORY }}
             rm -f ${{ secrets.APP_DIRECTORY }}/app.jar
             exit
