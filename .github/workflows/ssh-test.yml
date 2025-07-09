@@ -11,7 +11,7 @@ jobs:
         uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{ secrets.EC2_HOST }}
-          username: ubuntu                     # or ec2-user (depends on your AMI)
+          username: ec2-user                   # or ec2-user (depends on your AMI)
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             echo "✅ SSH connection succeeded!"
