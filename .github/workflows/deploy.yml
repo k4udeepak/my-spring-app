@@ -45,7 +45,7 @@ jobs:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
-          source: "artifacts/app.jar"
+          source: "artifacts/*.jar"
           target: "${{ secrets.APP_DIRECTORY }}"
 
       - name: Run App on EC2
