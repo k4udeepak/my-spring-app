@@ -55,5 +55,15 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
+           echo "Killing old app..."
             pkill -f 'java' || true
-            nohup java -jar app.jar > app.log 2>&1 & echo $!
+            echo "📁 Moving to app directory"
+            cd ${{ secrets.APP_DIRECTORY }}
+
+                 echo " Finding latest JAR"
+                 JAR=$(ls -t *.jar | head -n1)
+              echo "Starting: $JAR"
+            nohup java -jar "$JAR" > app.log 2>&1 &
+                 sleep 3
+               echo " Checking log file:"
+               tail -n 10 app.log || echo "app.log not found"
