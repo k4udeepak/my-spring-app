@@ -23,8 +23,8 @@ jobs:
 
       - name: Upload build artifact
         run: |
-          mkdir artifacts
-          cp build/libs/*.jar artifacts/app.jar
+          mkdir -p artifacts
+          cp build/libs/*.jar artifacts/
 
       - name: Deploy to EC2 via SSH
         uses: appleboy/ssh-action@v1.0.0
