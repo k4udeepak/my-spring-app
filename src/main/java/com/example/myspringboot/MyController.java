@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MyController {
 	@GetMapping("/hello")
-	public void showMessage() {
-		System.out.println("Here i am, your first Spring project automated");
+	public String showMessage() {
+		return "Here i am, your first Spring project automated";
 	}
 
 }   
